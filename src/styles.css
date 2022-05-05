@@ -1,0 +1,114 @@
+h2.forecast-section,
+h2.current-section {
+  font-size: 20px;
+  margin: 2px;
+  color: #009bde;
+  font-weight: 500;
+}
+
+footer {
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+  font-size: small;
+  font-style: italic;
+  color: whitesmoke;
+}
+
+.main-page {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.borders {
+  border: 2px solid #002a41;
+  border-radius: 5px;
+  background-color: whitesmoke;
+}
+
+.search-entry {
+  background-color: whitesmoke;
+  width: 68%;
+  padding: 5px;
+}
+
+.search-button,
+.current-button {
+  width: 15%;
+  padding: 5px;
+  color: white;
+  transition: 300ms all ease-in-out;
+}
+
+.search-button:hover,
+.current-button:hover {
+  background-color: white;
+  color: #002a41;
+}
+
+.search-button {
+  background-color: #002a41;
+}
+
+.current-button {
+  background-color: #00adec;
+  border-color: #00adec;
+}
+
+.current-section {
+  margin: 15px auto;
+}
+
+.current-icon {
+  font-size: 15px;
+  color: #002a41;
+  text-align: right;
+}
+
+.current-city {
+  color: #757575;
+  font-size: 25px;
+  text-align: left;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.current-description {
+  font-size: 15px;
+  color: #002a41;
+  text-transform: capitalize;
+}
+
+.selected-temp-scale {
+  color: #002a41;
+  text-decoration: none;
+}
+
+.inner {
+  margin: 1px;
+}
+
+.forecast-section {
+  margin: 15px auto;
+  padding: 5px;
+  text-align: center;
+}
+
+.card-day {
+  color: #757575;
+  padding-bottom: 5px;
+  font-weight: 600;
+  font-size: medium;
+}
+
+.card-temp {
+  padding-bottom: 10px;
+  color: #002a41;
+  font-size: small;
+}
+
+.card-icon {
+  color: 002a41;
+  font-size: 40px;
+  padding-bottom: 5px;
+}
