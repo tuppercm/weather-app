@@ -93,10 +93,19 @@ footer {
 .active {
   color: #002a41;
   text-decoration: none;
+  cursor: default;
+}
+
+.active:hover {
+  color: #002a41;
 }
 
 .inactive {
   text-decoration: none;
+}
+
+.inactive:hover {
+  text-decoration: underline;
 }
 
 .inner {
