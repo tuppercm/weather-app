@@ -11,30 +11,35 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link href="src/styles.css" rel="stylesheet" />
+
     <script
       src="https://kit.fontawesome.com/bd28344096.js"
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="src/styles.css" rel="stylesheet" />
   </head>
   <body background="images/clouds1.jpg">
     <div class="container main-page">
       <!-- Start search section -->
-      <div>
-        <form id="city-search-form">
-          <input
-            class="search-entry borders"
-            type="text"
-            placeholder="Enter a city"
-            id="city-input"
-            autocomplete="off"
-          />
-          <button class="search-button borders" type="submit">Search</button>
+      <div class="row">
+        <div class="col-9">
+          <form id="city-search-form">
+            <input
+              class="search-entry borders"
+              type="text"
+              placeholder="Enter a city"
+              id="city-input"
+              autocomplete="off"
+            />
+            <input class="search-button borders" type="submit" value="Search" />
+          </form>
+        </div>
+        <div class="col-3">
           <button class="current-button borders" id="current-city-button">
             Current
           </button>
-        </form>
+        </div>
       </div>
 
       <!-- Ends search section -->

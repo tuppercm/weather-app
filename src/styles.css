@@ -14,6 +14,13 @@ footer {
   color: whitesmoke;
 }
 
+.main-page {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 10px;
+  padding: 10px;
+  max-width: 600px;
+}
+
 .footer-link {
   text-decoration: underline;
   color: whitesmoke;
@@ -21,12 +28,6 @@ footer {
 
 .footer-link:hover {
   color: #002a41;
-}
-
-.main-page {
-  font-family: Arial, Helvetica, sans-serif;
-  margin-top: 10px;
-  padding: 10px;
 }
 
 .borders {
@@ -37,13 +38,12 @@ footer {
 
 .search-entry {
   background-color: whitesmoke;
-  width: 68%;
   padding: 5px;
+  width: 75%;
 }
 
 .search-button,
 .current-button {
-  width: 15%;
   padding: 5px;
   color: white;
   transition: 300ms all ease-in-out;
@@ -57,11 +57,13 @@ footer {
 
 .search-button {
   background-color: #002a41;
+  width: 100px;
 }
 
 .current-button {
   background-color: #00adec;
   border-color: #00adec;
+  width: 100px;
 }
 
 .current-section {
