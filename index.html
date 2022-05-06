@@ -22,25 +22,28 @@
   <body background="images/clouds1.jpg">
     <div class="container main-page">
       <!-- Start search section -->
-      <div class="row">
-        <div class="col-9">
-          <form id="city-search-form">
-            <input
-              class="search-entry borders"
-              type="text"
-              placeholder="Enter a city"
-              id="city-input"
-              autocomplete="off"
-            />
-            <input class="search-button borders" type="submit" value="Search" />
-          </form>
-        </div>
-        <div class="col-3">
-          <button class="current-button borders" id="current-city-button">
-            Current
-          </button>
-        </div>
-      </div>
+      <form id="city-search-form">
+        <input
+          class="search-entry borders"
+          type="search"
+          placeholder="Enter a city"
+          id="city-input"
+          autocomplete="off"
+        />
+        <input
+          class="search-button borders"
+          type="submit"
+          id="search-button"
+          value="Search"
+        />
+        <input
+          class="current-button borders"
+          id="current-city-button"
+          type="button"
+          value="Current"
+        />
+      </form>
+
       <!-- Ends search section -->
 
       <!-- Start current section -->

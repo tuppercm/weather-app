@@ -39,7 +39,7 @@ footer {
 .search-entry {
   background-color: whitesmoke;
   padding: 5px;
-  width: 75%;
+  width: 70%;
 }
 
 .search-button,
@@ -57,13 +57,11 @@ footer {
 
 .search-button {
   background-color: #002a41;
-  width: 100px;
 }
 
 .current-button {
   background-color: #00adec;
   border-color: #00adec;
-  width: 100px;
 }
 
 .current-section {
