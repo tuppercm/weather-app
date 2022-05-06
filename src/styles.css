@@ -90,8 +90,12 @@ footer {
   text-transform: capitalize;
 }
 
-.selected-temp-scale {
+.active {
   color: #002a41;
+  text-decoration: none;
+}
+
+.inactive {
   text-decoration: none;
 }
 

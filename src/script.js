@@ -44,24 +44,29 @@ function formatDate() {
 
 function showFahrenheit(event) {
   event.preventDefault();
+  let fahrenheitTemp = Math.round((celsiusTemp * 9) / 5 + 32);
   let currentTemp = document.querySelector("#current-temp");
-  currentTemp.innerHTML = "60";
+  currentTemp.innerHTML = fahrenheitTemp;
 
   let tempF = document.querySelector("#temp-f");
   let tempC = document.querySelector("#temp-c");
-  tempF.classList.add("selected-temp-scale");
-  tempC.classList.remove("selected-temp-scale");
+  tempF.classList.add("active");
+  tempF.classList.remove("inactive");
+  tempC.classList.remove("active");
+  tempC.classList.add("inactive");
 }
 
 function showCelsius(event) {
   event.preventDefault();
   let currentTemp = document.querySelector("#current-temp");
-  currentTemp.innerHTML = "15";
+  currentTemp.innerHTML = celsiusTemp;
 
   let tempF = document.querySelector("#temp-f");
   let tempC = document.querySelector("#temp-c");
-  tempC.classList.add("selected-temp-scale");
-  tempF.classList.remove("selected-temp-scale");
+  tempC.classList.add("active");
+  tempC.classList.remove("inactive");
+  tempF.classList.remove("active");
+  tempF.classList.add("inactive");
 }
 
 function getApiKey() {
@@ -87,8 +92,9 @@ function updateWeather(response) {
   city.innerHTML = response.data.name;
   let description = document.querySelector("#current-description");
   description.innerHTML = response.data.weather[0].description;
-  let temp = document.querySelector("#current-temp");
-  temp.innerHTML = Math.round(response.data.main.temp);
+  let currentTemp = document.querySelector("#current-temp");
+  celsiusTemp = Math.round(response.data.main.temp);
+  currentTemp.innerHTML = `${celsiusTemp}`;
   let high = document.querySelector("#current-high");
   high.innerHTML = `${Math.round(response.data.main.temp_max)}°`;
   let low = document.querySelector("#current-low");
@@ -113,11 +119,13 @@ cityInput.addEventListener("submit", handleCityInput);
 let currentCityButton = document.querySelector("#current-city-button");
 currentCityButton.addEventListener("click", getCurrentWeather);
 
-//let tempC = document.querySelector("#temp-c");
-//tempC.addEventListener("click", showCelsius);
+let tempC = document.querySelector("#temp-c");
+tempC.addEventListener("click", showCelsius);
 
-//let tempF = document.querySelector("#temp-f");
-//tempF.addEventListener("click", showFahrenheit);
+let celsiusTemp = null;
+
+let tempLinkF = document.querySelector("#temp-f");
+tempLinkF.addEventListener("click", showFahrenheit);
 
 let currentDate = document.querySelector("#current-date");
 currentDate.innerHTML = formatDate();
