@@ -1,19 +1,7 @@
-function formatHours(hours) {
-  if (hours < 10) {
-    hours = "0" + hours;
-  }
-  return hours;
-}
-
-function formatMinutes(minutes) {
-  if (minutes < 10) {
-    minutes = "0" + minutes;
-  }
-  return minutes;
-}
-
-function getDayOfWeek(dayIndex) {
-  let days = [
+function formatDate() {
+  let now = new Date();
+  let day = now.getDay();
+  let dayNames = [
     "Sunday",
     "Monday",
     "Tuesday",
@@ -22,7 +10,36 @@ function getDayOfWeek(dayIndex) {
     "Friday",
     "Saturday",
   ];
-  return days[dayIndex];
+
+  let month = now.getMonth();
+  let monthNames = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  let date = now.getDate();
+  let year = now.getFullYear();
+
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = "0" + hours;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+
+  return `${dayNames[day]}, ${monthNames[month]} ${date} ${year} ${hours}:${minutes}`;
 }
 
 function showFahrenheit(event) {
@@ -102,12 +119,7 @@ currentCityButton.addEventListener("click", getCurrentWeather);
 //let tempF = document.querySelector("#temp-f");
 //tempF.addEventListener("click", showFahrenheit);
 
-let now = new Date();
-let currentDay = getDayOfWeek(now.getDay());
-let currentHours = formatHours(now.getHours());
-let currentMinutes = formatMinutes(now.getMinutes());
-
 let currentDate = document.querySelector("#current-date");
-currentDate.innerHTML = `${currentDay} ${currentHours}:${currentMinutes}`;
+currentDate.innerHTML = formatDate();
 
 searchCity("New York");
