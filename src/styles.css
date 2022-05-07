@@ -67,9 +67,13 @@ footer {
   margin: 15px auto;
 }
 
+.current-details li {
+  list-style: none;
+}
+
 .last-updated {
   font-style: italic;
-  font-size: 14px;
+  font-size: 12px;
   text-align: right;
 }
 
