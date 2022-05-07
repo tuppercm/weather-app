@@ -88,19 +88,21 @@ function searchPosition(position) {
 }
 
 function updateWeather(response) {
-  let city = document.querySelector("#current-city");
-  city.innerHTML = response.data.name;
-  let description = document.querySelector("#current-description");
-  description.innerHTML = response.data.weather[0].description;
-  let currentTemp = document.querySelector("#current-temp");
+  let cityElement = document.querySelector("#current-city");
+  let descriptionElement = document.querySelector("#current-description");
+  let tempElement = document.querySelector("#current-temp");
+  let highElement = document.querySelector("#current-high");
+  let lowElement = document.querySelector("#current-low");
+  let humidityElement = document.querySelector("#current-humidity");
+  let windElement = document.querySelector("#current-wind");
   celsiusTemp = Math.round(response.data.main.temp);
-  currentTemp.innerHTML = `${celsiusTemp}`;
-  let high = document.querySelector("#current-high");
-  high.innerHTML = `${Math.round(response.data.main.temp_max)}°`;
-  let low = document.querySelector("#current-low");
-  low.innerHTML = `${Math.round(response.data.main.temp_min)}°`;
-  let humidity = document.querySelector("#current-humidity");
-  humidity.innerHTML = `${response.data.main.humidity}%`;
+  cityElement.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  tempElement.innerHTML = `${celsiusTemp}`;
+  highElement.innerHTML = `${Math.round(response.data.main.temp_max)}°`;
+  lowElement.innerHTML = `${Math.round(response.data.main.temp_min)}°`;
+  humidityElement.innerHTML = `${response.data.main.humidity}%`;
+  windElement.innerHTML = `${Math.round(response.data.wind.speed)} km/h`;
 }
 
 function handleCityInput(event) {
