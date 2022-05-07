@@ -84,11 +84,11 @@ footer {
 }
 
 .current-city {
-  color: #757575;
-  font-size: 25px;
+  color: #009bde;
+  font-size: 30px;
   text-align: left;
   text-transform: capitalize;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .current-description {

@@ -53,7 +53,6 @@ function searchPosition(position) {
 }
 
 function updateWeather(response) {
-  console.log(response.data.weather[0].icon);
   let cityElement = document.querySelector("#current-city");
   let descriptionElement = document.querySelector("#current-description");
   let tempElement = document.querySelector("#current-temp");
@@ -61,6 +60,8 @@ function updateWeather(response) {
   let lowElement = document.querySelector("#current-low");
   let humidityElement = document.querySelector("#current-humidity");
   let windElement = document.querySelector("#current-wind");
+  let iconElement = document.querySelector("#current-icon");
+
   celsiusTemp = Math.round(response.data.main.temp);
   celsiusHighToday = Math.round(response.data.main.temp_max);
   celsiusLowToday = Math.round(response.data.main.temp_min);
@@ -72,6 +73,15 @@ function updateWeather(response) {
   lowElement.innerHTML = `${celsiusLowToday}°`;
   humidityElement.innerHTML = `${response.data.main.humidity}%`;
   windElement.innerHTML = `${celsiusWindToday} m/s`;
+
+  let icon = response.data.weather[0].icon;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  //http://openweathermap.org/img/wn/${icon}@2x.png
 }
 
 function showFahrenheit(event) {

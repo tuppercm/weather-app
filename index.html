@@ -50,45 +50,42 @@
       <div class="current-section borders container">
         <span class="current-city" ID="current-city">--City--</span>
         <div class="row">
-          <div class="col-5">
-            <span class="current-description" id="current-description"
-              >--Description--</span
-            >
-            <br />
-            <i
-              class="current-icon fa-solid fa-cloud-bolt"
-              id="#current-icon"
-            ></i>
-            <span id="current-temp">--</span>
+          <div class="col-4">
+            <span id="current-temp"></span>
             <a href src="#" class="inactive" id="temp-f">°F</a>
             |
             <a href src="#" class="active" id="temp-c">°C</a>
+            <br />
+            <img src="" alt="" id="current-icon">
+            </img>
+            <br />
+            <span class="current-description" id="current-description"
+              ></span
+            >
           </div>
-          <div class="col-7">
-            <div class="col-7 current-details">
-              <ul>
-                <li>
-                  High:
-                  <span id="current-high">--</span>
-                </li>
-                <li>
-                  Low:
-                  <span id="current-low">--</span>
-                </li>
-                <li>
-                  Humidity:
-                  <span id="current-humidity">--</span>
-                </li>
-                <li>
-                  Wind:
-                  <span id="current-wind">--</span>
-                </li>
-              </ul>
-            </div>
-            <p class="last-updated">
-              Last updated: <span id="current-date"></span>
-            </p>
+          <div class="col-6 current-details">
+            <ul>
+              <li>
+                High:
+                <span id="current-high"></span>
+              </li>
+              <li>
+                Low:
+                <span id="current-low"></span>
+              </li>
+              <li>
+                Humidity:
+                <span id="current-humidity"></span>
+              </li>
+              <li>
+                Wind:
+                <span id="current-wind"></span>
+              </li>
+            </ul>
           </div>
+          <p class="last-updated">
+            Last updated: <span id="current-date"></span>
+          </p>
         </div>
       </div>
       <!-- Ends current section -->
