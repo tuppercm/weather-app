@@ -34,6 +34,46 @@ function formatDate() {
   return `${date} ${monthNames[month]} ${hours}:${minutes}`;
 }
 
+function getApiKey() {
+  return "d345b94fee409ccc249832a53244de54";
+}
+
+function searchCity(city) {
+  let apiKey = getApiKey();
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(updateWeather);
+}
+
+function searchPosition(position) {
+  let apiKey = getApiKey();
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(updateWeather);
+}
+
+function updateWeather(response) {
+  console.log(response);
+  let cityElement = document.querySelector("#current-city");
+  let descriptionElement = document.querySelector("#current-description");
+  let tempElement = document.querySelector("#current-temp");
+  let highElement = document.querySelector("#current-high");
+  let lowElement = document.querySelector("#current-low");
+  let humidityElement = document.querySelector("#current-humidity");
+  let windElement = document.querySelector("#current-wind");
+  celsiusTemp = Math.round(response.data.main.temp);
+  celsiusHighToday = Math.round(response.data.main.temp_max);
+  celsiusLowToday = Math.round(response.data.main.temp_min);
+  celsiusWindToday = Math.round(response.data.wind.speed);
+  cityElement.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  tempElement.innerHTML = `${celsiusTemp}`;
+  highElement.innerHTML = `${celsiusHighToday}°`;
+  lowElement.innerHTML = `${celsiusLowToday}°`;
+  humidityElement.innerHTML = `${response.data.main.humidity}%`;
+  windElement.innerHTML = `${celsiusWindToday} m/s`;
+}
+
 function showFahrenheit(event) {
   event.preventDefault();
   let fahrenheitTemp = Math.round((celsiusTemp * 9) / 5 + 32);
@@ -47,6 +87,10 @@ function showFahrenheit(event) {
   let fahrenheitTempLow = Math.round((celsiusLowToday * 9) / 5 + 32);
   let low = document.querySelector("#current-low");
   low.innerHTML = `${fahrenheitTempLow}°`;
+
+  let fahrenheitWind = Math.round(celsiusWindToday * 2.237);
+  let wind = document.querySelector("#current-wind");
+  wind.innerHTML = `${fahrenheitWind} mph`;
 
   let tempF = document.querySelector("#temp-f");
   let tempC = document.querySelector("#temp-c");
@@ -67,50 +111,15 @@ function showCelsius(event) {
   let low = document.querySelector("#current-low");
   low.innerHTML = `${celsiusLowToday}°`;
 
+  let wind = document.querySelector("#current-wind");
+  wind.innerHTML = `${celsiusWindToday} m/s`;
+
   let tempF = document.querySelector("#temp-f");
   let tempC = document.querySelector("#temp-c");
   tempC.classList.add("active");
   tempC.classList.remove("inactive");
   tempF.classList.remove("active");
   tempF.classList.add("inactive");
-}
-
-function getApiKey() {
-  return "d345b94fee409ccc249832a53244de54";
-}
-
-function searchCity(city) {
-  let apiKey = getApiKey();
-  let units = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(updateWeather);
-}
-
-function searchPosition(position) {
-  let apiKey = getApiKey();
-  let units = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(updateWeather);
-}
-
-function updateWeather(response) {
-  let cityElement = document.querySelector("#current-city");
-  let descriptionElement = document.querySelector("#current-description");
-  let tempElement = document.querySelector("#current-temp");
-  let highElement = document.querySelector("#current-high");
-  let lowElement = document.querySelector("#current-low");
-  let humidityElement = document.querySelector("#current-humidity");
-  let windElement = document.querySelector("#current-wind");
-  celsiusTemp = Math.round(response.data.main.temp);
-  celsiusHighToday = Math.round(response.data.main.temp_max);
-  celsiusLowToday = Math.round(response.data.main.temp_min);
-  cityElement.innerHTML = response.data.name;
-  descriptionElement.innerHTML = response.data.weather[0].description;
-  tempElement.innerHTML = `${celsiusTemp}`;
-  highElement.innerHTML = `${celsiusHighToday}°`;
-  lowElement.innerHTML = `${celsiusLowToday}°`;
-  humidityElement.innerHTML = `${response.data.main.humidity}%`;
-  windElement.innerHTML = `${Math.round(response.data.wind.speed)} km/h`;
 }
 
 function handleCityInput(event) {
@@ -135,6 +144,7 @@ tempC.addEventListener("click", showCelsius);
 let celsiusTemp = null;
 let celsiusHighToday = null;
 let celsiusLowToday = null;
+let celsiusWindToday = null;
 
 let tempLinkF = document.querySelector("#temp-f");
 tempLinkF.addEventListener("click", showFahrenheit);
