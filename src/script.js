@@ -1,7 +1,7 @@
-function formatDate() {
-  let now = new Date();
-  //let day = now.getDay();
-  //let dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
+  let day = now.getDay();
+  let dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   let month = now.getMonth();
   let monthNames = [
@@ -31,7 +31,7 @@ function formatDate() {
     minutes = "0" + minutes;
   }
 
-  return `${date} ${monthNames[month]} ${hours}:${minutes}`;
+  return `${dayNames[day]} ${date} ${monthNames[month]} ${hours}:${minutes}`;
 }
 
 function getApiKey() {
@@ -73,6 +73,9 @@ function updateWeather(response) {
   lowElement.innerHTML = `${celsiusLowToday}°`;
   humidityElement.innerHTML = `${response.data.main.humidity}%`;
   windElement.innerHTML = `${celsiusWindToday} m/s`;
+
+  let dateElement = document.querySelector("#current-date");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 
   let icon = response.data.weather[0].icon;
   iconElement.setAttribute(
@@ -159,7 +162,7 @@ let celsiusWindToday = null;
 let tempLinkF = document.querySelector("#temp-f");
 tempLinkF.addEventListener("click", showFahrenheit);
 
-let currentDate = document.querySelector("#current-date");
-currentDate.innerHTML = formatDate();
+//let currentDate = document.querySelector("#current-date");
+//currentDate.innerHTML = formatDate();
 
 searchCity("New York");
