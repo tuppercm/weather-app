@@ -53,7 +53,6 @@ function searchPosition(position) {
 }
 
 function updateWeather(response) {
-  console.log(response);
   let cityElement = document.querySelector("#current-city");
   let descriptionElement = document.querySelector("#current-description");
   let tempElement = document.querySelector("#current-temp");
