@@ -1,15 +1,7 @@
 function formatDate() {
   let now = new Date();
-  let day = now.getDay();
-  let dayNames = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+  //let day = now.getDay();
+  //let dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   let month = now.getMonth();
   let monthNames = [
@@ -28,7 +20,7 @@ function formatDate() {
   ];
 
   let date = now.getDate();
-  let year = now.getFullYear();
+  //let year = now.getFullYear();
 
   let hours = now.getHours();
   if (hours < 10) {
@@ -39,7 +31,7 @@ function formatDate() {
     minutes = "0" + minutes;
   }
 
-  return `${dayNames[day]}, ${monthNames[month]} ${date} ${year} ${hours}:${minutes}`;
+  return `${date} ${monthNames[month]} ${hours}:${minutes}`;
 }
 
 function showFahrenheit(event) {
@@ -88,6 +80,7 @@ function searchPosition(position) {
 }
 
 function updateWeather(response) {
+  console.log(response);
   let cityElement = document.querySelector("#current-city");
   let descriptionElement = document.querySelector("#current-description");
   let tempElement = document.querySelector("#current-temp");
