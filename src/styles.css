@@ -65,6 +65,7 @@ footer {
 
 .current-section {
   margin: 15px auto;
+  padding: 10px 15px 0px 15px;
 }
 
 .current-details li {
