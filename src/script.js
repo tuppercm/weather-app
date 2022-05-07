@@ -40,6 +40,14 @@ function showFahrenheit(event) {
   let currentTemp = document.querySelector("#current-temp");
   currentTemp.innerHTML = fahrenheitTemp;
 
+  let fahrenheitTempHigh = Math.round((celsiusHighToday * 9) / 5 + 32);
+  let high = document.querySelector("#current-high");
+  high.innerHTML = `${fahrenheitTempHigh}°`;
+
+  let fahrenheitTempLow = Math.round((celsiusLowToday * 9) / 5 + 32);
+  let low = document.querySelector("#current-low");
+  low.innerHTML = `${fahrenheitTempLow}°`;
+
   let tempF = document.querySelector("#temp-f");
   let tempC = document.querySelector("#temp-c");
   tempF.classList.add("active");
@@ -52,6 +60,12 @@ function showCelsius(event) {
   event.preventDefault();
   let currentTemp = document.querySelector("#current-temp");
   currentTemp.innerHTML = celsiusTemp;
+
+  let high = document.querySelector("#current-high");
+  high.innerHTML = `${celsiusHighToday}°`;
+
+  let low = document.querySelector("#current-low");
+  low.innerHTML = `${celsiusLowToday}°`;
 
   let tempF = document.querySelector("#temp-f");
   let tempC = document.querySelector("#temp-c");
@@ -80,7 +94,6 @@ function searchPosition(position) {
 }
 
 function updateWeather(response) {
-  console.log(response);
   let cityElement = document.querySelector("#current-city");
   let descriptionElement = document.querySelector("#current-description");
   let tempElement = document.querySelector("#current-temp");
@@ -89,11 +102,13 @@ function updateWeather(response) {
   let humidityElement = document.querySelector("#current-humidity");
   let windElement = document.querySelector("#current-wind");
   celsiusTemp = Math.round(response.data.main.temp);
+  celsiusHighToday = Math.round(response.data.main.temp_max);
+  celsiusLowToday = Math.round(response.data.main.temp_min);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   tempElement.innerHTML = `${celsiusTemp}`;
-  highElement.innerHTML = `${Math.round(response.data.main.temp_max)}°`;
-  lowElement.innerHTML = `${Math.round(response.data.main.temp_min)}°`;
+  highElement.innerHTML = `${celsiusHighToday}°`;
+  lowElement.innerHTML = `${celsiusLowToday}°`;
   humidityElement.innerHTML = `${response.data.main.humidity}%`;
   windElement.innerHTML = `${Math.round(response.data.wind.speed)} km/h`;
 }
@@ -118,6 +133,8 @@ let tempC = document.querySelector("#temp-c");
 tempC.addEventListener("click", showCelsius);
 
 let celsiusTemp = null;
+let celsiusHighToday = null;
+let celsiusLowToday = null;
 
 let tempLinkF = document.querySelector("#temp-f");
 tempLinkF.addEventListener("click", showFahrenheit);
