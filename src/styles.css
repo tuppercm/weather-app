@@ -66,6 +66,7 @@ footer {
 .current-section {
   margin: 15px auto;
   padding: 10px 15px 0px 15px;
+  background-color: #dedbdb;
 }
 
 .current-details li {
@@ -75,12 +76,6 @@ footer {
 .last-updated {
   font-style: italic;
   font-size: 12px;
-  text-align: right;
-}
-
-.current-icon {
-  font-size: 15px;
-  color: #002a41;
   text-align: right;
 }
 
@@ -124,6 +119,7 @@ footer {
   margin: 15px auto;
   padding: 5px;
   text-align: center;
+  background-color: #dedbdb;
 }
 
 .card-day {
