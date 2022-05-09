@@ -83,34 +83,6 @@ function updateWeather(response) {
     `http://openweathermap.org/img/wn/${icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-
-  //http://openweathermap.org/img/wn/${icon}@2x.png
-}
-
-function showFahrenheit(event) {
-  event.preventDefault();
-  let fahrenheitTemp = Math.round((celsiusTemp * 9) / 5 + 32);
-  let currentTemp = document.querySelector("#current-temp");
-  currentTemp.innerHTML = fahrenheitTemp;
-
-  let fahrenheitTempHigh = Math.round((celsiusHighToday * 9) / 5 + 32);
-  let high = document.querySelector("#current-high");
-  high.innerHTML = `${fahrenheitTempHigh}°`;
-
-  let fahrenheitTempLow = Math.round((celsiusLowToday * 9) / 5 + 32);
-  let low = document.querySelector("#current-low");
-  low.innerHTML = `${fahrenheitTempLow}°`;
-
-  let fahrenheitWind = Math.round(celsiusWindToday * 2.237);
-  let wind = document.querySelector("#current-wind");
-  wind.innerHTML = `${fahrenheitWind} mph`;
-
-  let tempF = document.querySelector("#temp-f");
-  let tempC = document.querySelector("#temp-c");
-  tempF.classList.add("active");
-  tempF.classList.remove("inactive");
-  tempC.classList.remove("active");
-  tempC.classList.add("inactive");
 }
 
 function showCelsius(event) {
@@ -126,13 +98,6 @@ function showCelsius(event) {
 
   let wind = document.querySelector("#current-wind");
   wind.innerHTML = `${celsiusWindToday} m/s`;
-
-  let tempF = document.querySelector("#temp-f");
-  let tempC = document.querySelector("#temp-c");
-  tempC.classList.add("active");
-  tempC.classList.remove("inactive");
-  tempF.classList.remove("active");
-  tempF.classList.add("inactive");
 }
 
 function handleCityInput(event) {
@@ -151,18 +116,9 @@ cityInput.addEventListener("submit", handleCityInput);
 let currentCityButton = document.querySelector("#current-city-button");
 currentCityButton.addEventListener("click", getCurrentWeather);
 
-let tempC = document.querySelector("#temp-c");
-tempC.addEventListener("click", showCelsius);
-
 let celsiusTemp = null;
 let celsiusHighToday = null;
 let celsiusLowToday = null;
 let celsiusWindToday = null;
-
-let tempLinkF = document.querySelector("#temp-f");
-tempLinkF.addEventListener("click", showFahrenheit);
-
-//let currentDate = document.querySelector("#current-date");
-//currentDate.innerHTML = formatDate();
 
 searchCity("New York");
