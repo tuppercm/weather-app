@@ -68,17 +68,17 @@ function updateWeather(response) {
   let windElement = document.querySelector("#current-wind");
   let iconElement = document.querySelector("#current-icon");
 
-  celsiusTemp = Math.round(response.data.main.temp);
-  celsiusHighToday = Math.round(response.data.main.temp_max);
-  celsiusLowToday = Math.round(response.data.main.temp_min);
-  celsiusWindToday = Math.round(response.data.wind.speed);
+  let currentTemp = Math.round(response.data.main.temp);
+  let highToday = Math.round(response.data.main.temp_max);
+  let lowToday = Math.round(response.data.main.temp_min);
+  let windToday = Math.round(response.data.wind.speed);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
-  tempElement.innerHTML = `${celsiusTemp}`;
-  highElement.innerHTML = `${celsiusHighToday}°`;
-  lowElement.innerHTML = `${celsiusLowToday}°`;
+  tempElement.innerHTML = `${currentTemp}`;
+  highElement.innerHTML = `${highToday}°`;
+  lowElement.innerHTML = `${lowToday}°`;
   humidityElement.innerHTML = `${response.data.main.humidity}%`;
-  windElement.innerHTML = `${celsiusWindToday}`;
+  windElement.innerHTML = `${windToday}`;
 
   let dateElement = document.querySelector("#current-date");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
@@ -106,10 +106,5 @@ cityInput.addEventListener("submit", handleCityInput);
 
 let currentCityButton = document.querySelector("#current-city-button");
 currentCityButton.addEventListener("click", getCurrentWeather);
-
-let celsiusTemp = null;
-let celsiusHighToday = null;
-let celsiusLowToday = null;
-let celsiusWindToday = null;
 
 searchCity("New York");
