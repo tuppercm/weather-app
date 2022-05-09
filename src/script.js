@@ -58,6 +58,13 @@ function searchPosition(position) {
   axios.get(apiUrl).then(updateWeather);
 }
 
+function getForecast(coords) {
+  let apiKey = getApiKey();
+  let units = "imperial";
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&&appid=${apiKey}&units=${units}`;
+  axios.get(apiURL).then(displayForecast);
+}
+
 function updateWeather(response) {
   let cityElement = document.querySelector("#current-city");
   let descriptionElement = document.querySelector("#current-description");
@@ -90,10 +97,11 @@ function updateWeather(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
-  displayForecast();
+  getForecast(response.data.coord);
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `
