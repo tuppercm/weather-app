@@ -66,17 +66,11 @@ footer {
 .current-section {
   margin: 15px auto;
   padding: 10px 15px 0px 15px;
-  background-color: #dedbdb;
+  background-color: whitesmoke;
 }
 
 .current-details li {
   list-style: none;
-}
-
-.last-updated {
-  font-style: italic;
-  font-size: 12px;
-  text-align: right;
 }
 
 .current-city {
@@ -93,15 +87,17 @@ footer {
   text-transform: capitalize;
 }
 
-.inner {
-  margin: 1px;
+.last-updated {
+  font-style: italic;
+  font-size: 12px;
+  text-align: right;
 }
 
 .forecast-section {
   margin: 15px auto;
   padding: 5px;
   text-align: center;
-  background-color: #dedbdb;
+  background-color: whitesmoke;
 }
 
 .card-day {
