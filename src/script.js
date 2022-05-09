@@ -3,25 +3,6 @@ function formatDate(timestamp) {
   let day = now.getDay();
   let dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-  let month = now.getMonth();
-  let monthNames = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-
-  let date = now.getDate();
-  //let year = now.getFullYear();
-
   let hours = now.getHours();
   let amPm = "null";
 
