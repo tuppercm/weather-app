@@ -89,6 +89,30 @@ function updateWeather(response) {
     `http://openweathermap.org/img/wn/${icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  displayForecast();
+}
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `
+    <div class="row">`;
+
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
+        <div class="forecast-day">${day}</div>
+        <img src="http://openweathermap.org/img/wn/10d@2x.png" width="50px">
+        <div class="forecast-temp"><span class="forecast-temp-high">60°</span> 40°</div>
+      </div>
+  `;
+  });
+  forecastHTML = forecastHTML + `<div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function handleCityInput(event) {
