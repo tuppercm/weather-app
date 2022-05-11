@@ -69,10 +69,10 @@ footer {
 
 .current-city {
   color: #00adec;
-  font-size: 30px;
+  font-size: 50px;
   text-align: left;
   text-transform: capitalize;
-  font-weight: 600;
+  font-family: "Amatic SC", cursive;
 }
 
 .current-description {
@@ -95,8 +95,9 @@ footer {
 
 .forecast-day {
   color: #00adec;
-  font-weight: 600;
-  font-size: medium;
+
+  font-size: 30px;
+  font-family: "Amatic SC", cursive;
 }
 
 .forecast-temp {
