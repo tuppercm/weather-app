@@ -39,13 +39,14 @@
           id="search-button"
           value="Search"
         />
-        <input
+        <button
           class="current-button borders"
           id="current-city-button"
           type="button"
-          value="Current"
-        />
+          ><i class="fa-solid fa-location-arrow"></i>
+        </button>
       </form>
+      
 
       <!-- Ends search section -->
 
@@ -66,19 +67,15 @@
           <div class="col-6 current-details">
             <ul>
               <li>
-                High:
-                <span id="current-high"></span>
+                <i class="fa-solid fa-temperature-half"></i>: <strong>H:<span id="current-high"></span></strong>
+                L:<span id="current-low"></span>
               </li>
               <li>
-                Low:
-                <span id="current-low"></span>
-              </li>
-              <li>
-                Humidity:
+                <i class="fa-solid fa-droplet"></i>: 
                 <span id="current-humidity"></span>
               </li>
               <li>
-                Wind:
+                <i class="fa-solid fa-wind"></i>:
                 <span id="current-wind"></span> mph
               </li>
             </ul>
