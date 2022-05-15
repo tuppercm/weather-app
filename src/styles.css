@@ -61,8 +61,17 @@ footer {
 .current-section {
   margin: 15px auto;
   padding: 10px 15px 0px 15px;
+  opacity: 0.75;
+}
+
+.daytime {
   background-color: whitesmoke;
-  opacity: 0.8;
+  color: #002a41;
+}
+
+.nighttime {
+  background-color: #002a41;
+  color: whitesmoke;
 }
 
 .current-details li {
@@ -109,8 +118,7 @@ footer {
   margin: 15px auto;
   padding: 10px 15px;
   text-align: center;
-  background-color: whitesmoke;
-  opacity: 0.85;
+  opacity: 0.75;
 }
 
 .forecast-day {

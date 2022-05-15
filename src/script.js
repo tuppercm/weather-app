@@ -94,12 +94,24 @@ function updateWeather(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
+  let currentSectionElement = document.querySelector("#current-section");
+  let forecastSectionElement = document.querySelector("#forecast");
+  if (icon.endsWith("n")) {
+    currentSectionElement.classList.add("nighttime");
+    currentSectionElement.classList.remove("daytime");
+    forecastSectionElement.classList.add("nighttime");
+    forecastSectionElement.classList.remove("daytime");
+  } else {
+    currentSectionElement.classList.remove("nighttime");
+    currentSectionElement.classList.add("daytime");
+    forecastSectionElement.classList.remove("nighttime");
+    forecastSectionElement.classList.add("daytime");
+  }
+
   getForecast(response.data.coord);
 }
 
 function displayForecast(response) {
-  console.log(response.data.daily);
-
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
