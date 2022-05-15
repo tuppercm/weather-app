@@ -81,6 +81,23 @@ footer {
   text-transform: capitalize;
 }
 
+#current-temp {
+  font-size: 50px;
+  position: relative;
+  top: -10px;
+}
+
+#current-units {
+  position: relative;
+  top: -32px;
+}
+
+#current-icon {
+  position: relative;
+  top: -20px;
+  float: left;
+}
+
 .last-updated {
   font-style: italic;
   font-size: 12px;

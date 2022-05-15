@@ -15,9 +15,12 @@
       src="https://kit.fontawesome.com/bd28344096.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link href="src/styles.css" rel="stylesheet" />
   </head>
@@ -43,10 +46,10 @@
           class="current-button borders"
           id="current-city-button"
           type="button"
-          ><i class="fa-solid fa-location-arrow"></i>
+        >
+          <i class="fa-solid fa-location-arrow"></i>
         </button>
       </form>
-      
 
       <!-- Ends search section -->
 
@@ -54,24 +57,27 @@
       <div class="current-section borders">
         <span class="current-city" ID="current-city">--City--</span>
         <div class="row">
-          <div class="col-4">
-             <span class="current-description" id="current-description"
-              ></span
-            >
-             <br />
-            <span id="current-temp"></span>°F
-            <br />
+          <div class="col-5">
+            <span id="current-temp"></span><span id="current-units">°F</span>
+            
             <img src="" alt="" id="current-icon">
             </img>
+        <br/>
+            
           </div>
           <div class="col-6 current-details">
             <ul>
               <li>
-                <i class="fa-solid fa-temperature-half"></i>: <strong>H:<span id="current-high"></span></strong>
-                L:<span id="current-low"></span>
+                <span class="current-description" id="current-description"></span>
               </li>
               <li>
-                <i class="fa-solid fa-droplet"></i>: 
+                <i class="fa-solid fa-temperature-half"></i>:
+                <strong>H:<span id="current-high"></span></strong> L:<span
+                  id="current-low"
+                ></span>
+              </li>
+              <li>
+                <i class="fa-solid fa-droplet"></i>:
                 <span id="current-humidity"></span>
               </li>
               <li>
@@ -88,11 +94,7 @@
       <!-- Ends current section -->
 
       <!-- Start forecast section -->
-      <div class="forecast-section borders" id="forecast">
-
-
-        
-      </div>
+      <div class="forecast-section borders" id="forecast"></div>
       <!-- end of forecast section  -->
     </div>
     <!-- ends main container -->
