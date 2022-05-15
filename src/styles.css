@@ -62,6 +62,7 @@ footer {
   margin: 15px auto;
   padding: 10px 15px 0px 15px;
   background-color: whitesmoke;
+  opacity: 0.8;
 }
 
 .current-details li {
@@ -109,6 +110,7 @@ footer {
   padding: 10px 15px;
   text-align: center;
   background-color: whitesmoke;
+  opacity: 0.85;
 }
 
 .forecast-day {
