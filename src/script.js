@@ -121,15 +121,33 @@ function displayForecast(response) {
 
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
+      let icon = forecastDay.weather[0].icon;
+      let imageSource = "";
+      if (icon == "01d") {
+        imageSource = `<i class="fa-solid fa-sun forecast-icon"></i>`;
+      } else if (icon == "02d") {
+        imageSource = `<i class="fa-solid fa-cloud-sun forecast-icon"></i>`;
+      } else if (icon == "03d" || icon == "04d") {
+        imageSource = `<i class="fa-solid fa-cloud forecast-icon"></i>`;
+      } else if (icon == "09d" || icon == "10d") {
+        imageSource = `<i class="fa-solid fa-cloud-rain forecast-icon"></i>`;
+      } else if (icon == "11d") {
+        imageSource = `<i class="fa-solid fa-cloud-cloud-bolt forecast-icon"></i>`;
+      } else if (icon == "13d") {
+        imageSource = `<i class="fa-solid fa-snowflake forecast-icon"></i>`;
+      } else if (icon == "50d") {
+        imageSource = `<i class="fa-solid fa-smog forecast-icon"></i>`;
+      } else {
+        imageSource = `<img src="http://openweathermap.org/img/wn/${icon}@2x.png" height="50px" align="top">`;
+      }
+
       forecastHTML =
         forecastHTML +
         `
       <div class="col-2">
         <div class="forecast-day">${formatDay(forecastDay.dt)}</div>
         
-        <img src="http://openweathermap.org/img/wn/${
-          forecastDay.weather[0].icon
-        }@2x.png" width="50px">
+        ${imageSource}
         <div class="forecast-temp"><span class="forecast-temp-high">${Math.round(
           forecastDay.temp.max
         )}°</span> ${Math.round(forecastDay.temp.min)}°</div>
